@@ -1,7 +1,11 @@
-export function FeaturesSec() {
-    return (
-        {/* Platform Features Section */}
-      <section className="relative overflow-hidden bg-linkrow-section-bg py-20 lg:py-24">
+import { ArrowRight, ShieldCheck, List, Lock, Settings } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Badge } from "../../ui/badge"
+import Link from "next/link"
+
+export function FeaturesSection() {
+  return (
+    <section className="relative overflow-hidden bg-linkrow-section-bg py-20 lg:py-24">
         <div className="mx-auto max-w-[1400px] px-8 lg:px-16 xl:px-20">
           {/* Header */}
           <div className="mb-16 text-center">
@@ -216,5 +220,5 @@ export function FeaturesSec() {
           </div>
         </div>
       </section>
-    )
+  )
 }
