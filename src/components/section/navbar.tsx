@@ -17,7 +17,7 @@ export function Navbar() {
               />
             </svg>
           </div>
-          <span className="text-xl font-semibold text-linkrow-primary-text">linkrow</span>
+          <span className="text-xl font-semibold text-linkrow-primary-text">Al Mufawadh</span>
         </Link>
 
         {/* Navigation Links */}
