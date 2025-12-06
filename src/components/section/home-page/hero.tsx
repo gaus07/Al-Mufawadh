@@ -168,8 +168,8 @@ export function AnimatedHero() {
               <motion.div variants={ctaItemVariants} style={{ willChange: "transform, opacity" }}>
                 <Button
                   size="lg"
-                  variant="outline"
-                  className="rounded-full border-2 border-border bg-linkrow-badge-bg px-8 text-linkrow-primary-text transition-transform duration-300 hover:bg-linkrow-badge-bg"
+                  // variant="outline"
+                  className="rounded-full border-2 border-border bg-linkrow-badge-bg px-8 text-linkrow-primary-text transition-transform duration-300 hover:scale-105 hover:bg-linkrow-badge-bg"
                 >
                   Explore our services
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -231,7 +231,7 @@ export function AnimatedHero() {
                   {/* Specialist image */}
                   <div className="relative h-[400px] w-full lg:h-[440px]">
                     <Image
-                      src="/professional-woman-talent-acquisition-specialist-b.jpg"
+                      src="/specialist_image.png"
                       alt="Sarah Mitchell - Talent Acquisition Specialist"
                       fill
                       className="object-cover"

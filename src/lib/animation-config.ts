@@ -1,7 +1,12 @@
+// animation-config.ts
+export const EASING = {
+  smooth: [0.22, 1, 0.36, 1] as const,
+} as const
+
 // Timing constants for hero entrance animations - easy to tweak
 export const HERO_ANIMATION = {
   // Easing - smooth ease-out curve
-  easing: [0.22, 1, 0.36, 1] as const,
+  easing: EASING.smooth,
 
   // Left content timing
   headline: {
