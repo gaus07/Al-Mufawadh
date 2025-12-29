@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button"
 import { HERO_ANIMATION } from "@/lib/animation-config"
 import Link from "next/link"
+import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect"
 
 export function AnimatedHero() {
   const prefersReducedMotion = useReducedMotion()
@@ -96,6 +97,7 @@ export function AnimatedHero() {
 
   return (
     <section ref={containerRef} className="relative overflow-hidden bg-background">
+      <BackgroundRippleEffect />
       {/* Decorative background elements */}
       <div className="absolute right-0 top-0 h-[600px] w-[800px] bg-gradient-to-bl from-muted/40 to-transparent"></div>
 
@@ -133,8 +135,8 @@ export function AnimatedHero() {
               animate="visible"
               style={{ willChange: "transform, opacity" }}
             >
-              Recruitment process <br className="hidden lg:block" />
-              with <span className="text-linkrow-primary-text font-medium">smart solutions.</span>
+              <span className="text-linkrow-primary-text">Recruitment process <br className="hidden lg:block" />
+              with </span> <span className="text-linkrow-primary-text font-medium">smart solutions.</span>
             </motion.h1>
 
             {/* Subtext - fades up */}
@@ -185,7 +187,7 @@ export function AnimatedHero() {
               <div className="relative flex items-center">
                 {/* Background card - Dark teal with stats (slides in from right, slightly earlier) */}
                 <motion.div
-                  className="relative z-0 h-[340px] w-full max-w-[420px] rounded-[28px] bg-primary p-8 text-primary-foreground shadow-xl lg:h-[360px] lg:p-10"
+                  className="relative z-3 h-[340px] w-full max-w-[420px] rounded-[28px] bg-primary p-8 text-primary-foreground shadow-xl lg:h-[360px] lg:p-10"
                   variants={backgroundCardVariants}
                   initial="hidden"
                   animate="visible"

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Parkinsans } from "next/font/google";
 import "./globals.css";
+import { Navbar } from "@/components/section/navbar";
+import { FooterSection } from "@/components/section/footer";
 
 const parkinsans = Parkinsans({
   subsets: ["latin"],
@@ -25,7 +27,11 @@ export default function RootLayout({
       <body
         className={`${parkinsans.className}`}
       >
-        {children}
+      <Navbar />
+        <main> 
+          {children} 
+          </main> 
+      <FooterSection />
       </body>
     </html>
   );
