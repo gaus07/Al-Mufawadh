@@ -117,12 +117,12 @@ export function AnimatedHero() {
             >
               <Badge
                 asChild
-                className="text-linkrow-badge-text bg-linkrow-badge-bg"
+                className="px-3 py-1 text-sm rounded-2xl font-medium text-linkrow-badge-text bg-linkrow-badge-bg"
               >
                 <Link href="#">
                   {" "}
-                  <span className="text-linkrow-primary-text">250+</span>Trusted
-                  Partners
+                  <span className="text-linkrow-primary-text">250+</span>trusted
+                  partners
                 </Link>
               </Badge>
             </motion.div>
@@ -147,8 +147,7 @@ export function AnimatedHero() {
               animate="visible"
               style={{ willChange: "transform, opacity" }}
             >
-              Linkrow is your trusted partner in recruitment, offering personalized HR solutions that connect top talent
-              with the right opportunities.
+              <span className="text-linkrow-primary-text font-medium">Al Mufawadh Offers Incredible Placement Service Globally, </span>Approved by Government Of India, Ministry Of Labour. Strongly believe in a new beginning, fresh thinking, innovative ideas and value added services.
             </motion.p>
 
             {/* CTAs - staggered fade up */}

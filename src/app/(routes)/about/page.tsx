@@ -82,10 +82,9 @@ export default function CompanyPage() {
           viewport={{ once: true, margin: "-50px" }}
         >
           <motion.div variants={fadeInUp}>
-            {/* <BadgePill text="About us" /> */}
             <Badge
                 asChild
-                className="bg-linkrow-badge-bg"
+                className="px-3 py-1 text-sm rounded-2xl font-medium bg-linkrow-badge-bg"
               >
                 <Link href="#">
                   {" "}
@@ -116,10 +115,9 @@ export default function CompanyPage() {
               animate={awardsInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
               transition={{ duration: 0.8, ease: EASING.smooth }}
             >
-              {/* <BadgePill text="Awards" /> */}
               <Badge
                 asChild
-                className="bg-linkrow-badge-bg"
+                className="px-3 py-1 text-sm rounded-2xl font-medium bg-linkrow-badge-bg"
               >
                 <Link href="#">
                   {" "}

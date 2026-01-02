@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import Image from "next/image"
 
 export function FooterSection() {
   return (
@@ -13,22 +14,7 @@ export function FooterSection() {
             {/* Logo */}
             <div className="mb-6 flex items-center gap-3">
               <div className="flex items-center">
-                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M8 8L16 16L8 24"
-                    stroke="#1F514C"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                  <path
-                    d="M16 8L24 16L16 24"
-                    stroke="#1F514C"
-                    strokeWidth="3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
+                <Image src="/logo2.png" alt="Logo" width={34} height={34} />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-linkrow-primary-text">Al Mufawadh</h3>

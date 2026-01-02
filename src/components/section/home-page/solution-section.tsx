@@ -13,18 +13,17 @@ export function SolutionSection() {
       {/* How It Works Content */}
       <div className="relative">
         <div className="relative mx-auto max-w-[1400px] px-8 py-14 md:px-12 lg:px-16 lg:py-20">
-          <Badge asChild className="mb-6 text-linkrow-badge2-text bg-linkrow-badge2-bg">
+          <Badge asChild className="px-3 py-1 text-sm rounded-2xl font-medium mb-6 text-linkrow-badge2-text bg-linkrow-badge2-bg">
             <Link href="#">How it works</Link>
           </Badge>
 
           <h3 className="mb-4 font-medium leading-tight tracking-tight text-linkrow-secondary-bg">
-            <span className="block text-3xl sm:text-4xl lg:text-5xl">Efficient process to connect</span>
-            <span className="block text-3xl sm:text-4xl lg:text-5xl">businesses with the best talent.</span>
+            <span className="block text-3xl sm:text-4xl lg:text-5xl">Efficient process that matches talent with opportunity.</span>
+            {/* <span className="block text-3xl sm:text-4xl lg:text-5xl">businesses with the best talent.</span> */}
           </h3>
 
           <p className="mb-12 max-w-3xl text-base text-linkrow-secondary-bg md:text-lg">
-            We work closely with you to understand your business, culture, and specific hiring requirements. Using
-            this insight, we craft a personalized recruitment strategy designed to attract the best talent.
+            We work with employers to define requirements and with candidates to prepare, screen and mobilize — delivering the right hire and the right job.
           </p>
 
           {/* Steps */}
@@ -33,17 +32,17 @@ export function SolutionSection() {
               {
                 n: 1,
                 title: "Understand Your Needs",
-                desc: "We begin by working closely with you to understand your business, culture, and specific hiring requirements.",
+                desc: "We work closely with you to define role profiles, timelines and compliance requirements so search focuses on the right skills and culture fit.",
               },
               {
                 n: 2,
                 title: "Recruitment Strategy",
-                desc: "Based on your unique needs, we craft a personalized recruitment strategy designed to attract the best talent.",
+                desc: "We design a tailored sourcing plan — database search, active headhunting and targeted advertising — to attract qualified candidates fast.",
               },
               {
                 n: 3,
-                title: "Seamless Hiring Process",
-                desc: "Using our platform's advanced tools, we match you with top candidates and integrate the process with your HR systems.",
+                title: "Seamless Hiring & Mobilization",
+                desc: "From interviews and final selection to medicals, visa processing and flight coordination, we handle the end-to-end process for reliable, on-time mobilization.",
               },
             ].map((s) => (
               <div key={s.n} className="relative">
@@ -78,10 +77,10 @@ export function SolutionSection() {
           </div>
 
           {/* Overlay content */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center">
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-1 lg:px-6 py-40 lg:py-90 text-center">
             <h3 className="text-2xl font-medium leading-tight text-linkrow-secondary-bg sm:text-3xl md:text-4xl lg:text-5xl">
-              <span className="block">Get started with Linkrow today and</span>
-              <span className="block">discover a smarter, faster way to hire.</span>
+              <span className="block">Get started with Al Mufawadh today and</span>
+              <span className="block">discover a smarter, faster way to get hired.</span>
             </h3>
 
             <Button

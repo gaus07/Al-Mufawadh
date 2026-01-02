@@ -64,7 +64,7 @@ export function TeamSection() {
           >
             <Badge
                 asChild
-                className="bg-linkrow-badge-bg"
+                className="px-3 py-1 text-sm rounded-2xl font-medium bg-linkrow-badge-bg"
               >
                 <Link href="#">
                   {" "}

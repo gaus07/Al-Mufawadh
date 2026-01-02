@@ -6,6 +6,7 @@ import { motion } from "framer-motion"
 import { EASING } from "@/lib/animation-config"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
+import Link from "next/link"
 
 const badgeVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -81,8 +82,7 @@ export function FeaturesSection() {
             viewport={{ once: true, amount: 0.3 }}
             variants={badgeVariants}
           >
-            {/* <BadgePill className="mb-6 inline-flex">About us</BadgePill> */}
-            <Badge className="text-linkrow-primary-text bg-linkrow-badge-bg">About Us</Badge>
+            <Badge className="px-3 py-1 text-sm rounded-2xl font-medium text-linkrow-primary-text bg-linkrow-badge-bg">About Us</Badge>
           </motion.div>
 
           <motion.h2
@@ -92,7 +92,7 @@ export function FeaturesSection() {
             viewport={{ once: true, amount: 0.3 }}
             variants={headingVariants}
           >
-            Platform designed to simplify and enhance the hiring process.
+            Platform designed to simplify hiring and deliver better hires.
           </motion.h2>
 
           <motion.p
@@ -102,8 +102,8 @@ export function FeaturesSection() {
             viewport={{ once: true, amount: 0.3 }}
             variants={paragraphVariants}
           >
-            With personalized solutions tailored to your business needs, we connect you with the best talent quickly and
-            efficiently, helping you build stronger, more effective teams.
+            With personalized solutions tailored to your needs, we connect you with the best businesses quickly and
+            efficiently, helping you build stronger, more effective person.
           </motion.p>
 
           <motion.div
@@ -113,8 +113,10 @@ export function FeaturesSection() {
             variants={buttonVariants}
           >
             <Button size="lg" className="rounded-full bg-linkrow-primary-text px-8 text-linkrow-secondary-bg transition-transform duration-300 hover:scale-105 hover:bg-linkrow-primary-text">
-              About Linkrow
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <Link href="/about">
+              About Al Mufawadh
+              {/* <ArrowRight className="ml-2 h-5 w-5" /> */}
+              </Link>
             </Button>
           </motion.div>
         </div>
@@ -265,9 +267,9 @@ export function FeaturesSection() {
                                   height={24}
                                   />
               </div>
-              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">Faster Hiring</h3>
+              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">Our Network</h3>
               <p className="leading-relaxed text-linkrow-badge-text">
-                Streamlined processes that cut hiring time by 30% for faster results.
+                Headquartered in Mumbai with on-ground offices across India and the Middle East.
               </p>
             </motion.div>
 
@@ -284,9 +286,9 @@ export function FeaturesSection() {
                                   height={24}
                                   />
               </div>
-              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">Effortless Integration</h3>
+              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">Quality Assurance</h3>
               <p className="leading-relaxed text-linkrow-badge-text">
-                Seamlessly integrate our platform with your existing HR tools for a hiring experience.
+                Compliance-first hiring and strict verification at every step.
               </p>
             </motion.div>
           </motion.div>

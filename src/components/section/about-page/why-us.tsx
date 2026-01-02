@@ -55,13 +55,13 @@ export function WhyChooseUsSection() {
           transition={{ duration: 0.6, ease: EASING.smooth }}
           viewport={{ once: true, margin: "-50px" }}
         >
-          <Badge asChild className="bg-linkrow-badge-bg">
+          <Badge asChild className="px-3 py-1 text-sm rounded-2xl font-medium bg-linkrow-badge-bg">
             <Link href="#">
               <span className="text-linkrow-badge-text">Your success is our priority</span>
             </Link>
           </Badge>
 
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-linkrow-primary-text my-4">
+          <h2 className="text-4xl sm:text-4xl md:text-5xl font-medium text-linkrow-primary-text my-6">
             Why choose us
           </h2>
 
