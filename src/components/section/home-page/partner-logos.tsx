@@ -80,7 +80,7 @@ export default function PartnerLogos() {
 
   const getSpeed = () => {
     if (containerRef.current) {
-      containerRef.current.style.setProperty("--animation-duration", "30s")
+      containerRef.current.style.setProperty("--animation-duration", "60s")
     }
   }
 

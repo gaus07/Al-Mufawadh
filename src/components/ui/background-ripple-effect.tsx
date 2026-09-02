@@ -73,8 +73,8 @@
     borderColor = "#3f3f46",
     fillColor = "rgba(14,165,233,0.3)",
     clickedCell = null,
-    onCellClick = () => {},
-    interactive = true,
+    // onCellClick = () => {},
+    // interactive = true,
   }: DivGridProps) => {
     const cells = useMemo(
       () => Array.from({ length: rows * cols }, (_, idx) => idx),

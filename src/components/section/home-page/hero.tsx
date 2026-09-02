@@ -1,102 +1,28 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import Image from "next/image"
-import { ArrowRight } from "lucide-react"
-import { motion, useReducedMotion, TargetAndTransition } from "framer-motion"
+import { useRef } from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button"
-import { HERO_ANIMATION } from "@/lib/animation-config"
-import Link from "next/link"
-import MiddleEastMap from "@/components/ui/MiddleEastMap"
+import { ArrowRight } from "lucide-react";
+import MiddleEastMap from "@/components/ui/MiddleEastMap";
+import {
+  heroBadgeVariants,
+  heroHeadlineVariants,
+  heroSubtextVariants,
+  heroCtaContainerVariants,
+  heroCtaItemVariants,
+} from "@/lib/animation";
 
 export function AnimatedHero() {
-  const prefersReducedMotion = useReducedMotion()
-  const containerRef = useRef<HTMLDivElement>(null)
-
-  // If user prefers reduced motion, use instant animations
-  const getAnimation = (animation: TargetAndTransition): TargetAndTransition => (prefersReducedMotion ? { opacity: 1 } : animation)
-
-  // Left content variants
-  const headlineVariants = {
-    hidden: { opacity: 0, x: -60 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: HERO_ANIMATION.headline.duration,
-        delay: HERO_ANIMATION.headline.delay,
-        ease: HERO_ANIMATION.easing,
-      },
-    },
-  }
-
-  const subtextVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: HERO_ANIMATION.subtext.duration,
-        delay: HERO_ANIMATION.subtext.delay,
-        ease: HERO_ANIMATION.easing,
-      },
-    },
-  }
-
-  const ctaContainerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: HERO_ANIMATION.cta.delay,
-        staggerChildren: HERO_ANIMATION.cta.stagger,
-      },
-    },
-  }
-
-  const ctaItemVariants = {
-    hidden: { opacity: 0, y: 15 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: HERO_ANIMATION.cta.duration,
-        ease: HERO_ANIMATION.easing,
-      },
-    },
-  }
-
-  // Right content variants
-  const backgroundCardVariants = {
-    hidden: { opacity: 0, x: 80 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: HERO_ANIMATION.backgroundCard.duration,
-        delay: HERO_ANIMATION.backgroundCard.delay,
-        ease: HERO_ANIMATION.easing,
-      },
-    },
-  }
-
-  const specialistCardVariants = {
-    hidden: { opacity: 0, x: 100, scale: 0.96 },
-    visible: {
-      opacity: 1,
-      x: 0,
-      scale: 1,
-      transition: {
-        duration: HERO_ANIMATION.specialistCard.duration,
-        delay: HERO_ANIMATION.specialistCard.delay,
-        ease: HERO_ANIMATION.easing,
-      },
-    },
-  }
+  const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <section ref={containerRef} className="relative overflow-hidden bg-background">
+    <section
+      ref={containerRef}
+      className="relative overflow-hidden bg-background"
+    >
       <div className="absolute inset-0 z-0 opacity-40">
         <div className="h-full w-full">
           <MiddleEastMap />
@@ -112,13 +38,9 @@ export function AnimatedHero() {
           <div className="flex flex-col justify-center">
             {/* Badge */}
             <motion.div
-              initial={getAnimation({ opacity: 0, x: -40 })}
-              animate={getAnimation({ opacity: 1, x: 0 })}
-              transition={{
-                duration: 0.6,
-                delay: 0,
-                ease: HERO_ANIMATION.easing,
-              }}
+              variants={heroBadgeVariants}
+              initial="hidden"
+              animate="visible"
             >
               <Badge
                 asChild
@@ -135,37 +57,50 @@ export function AnimatedHero() {
             {/* Headline - slides from left */}
             <motion.h1
               className="mb-6 text-5xl font-light leading-tight tracking-tight text-foreground lg:text-6xl"
-              variants={headlineVariants}
+              variants={heroHeadlineVariants}
               initial="hidden"
               animate="visible"
               style={{ willChange: "transform, opacity" }}
             >
-              <span className="text-linkrow-primary-text">Recruitment process <br className="hidden lg:block" />
-              with </span> <span className="text-linkrow-primary-text font-medium">smart solutions.</span>
+              <span className="text-linkrow-primary-text">
+                Recruitment process <br className="hidden lg:block" />
+                with{" "}
+              </span>{" "}
+              <span className="text-linkrow-primary-text font-medium">
+                smart solutions.
+              </span>
             </motion.h1>
 
             {/* Subtext - fades up */}
             <motion.p
               className="mb-8 max-w-lg text-lg leading-relaxed text-linkrow-badge-text"
-              variants={subtextVariants}
+              variants={heroSubtextVariants}
               initial="hidden"
               animate="visible"
               style={{ willChange: "transform, opacity" }}
             >
-              <span className="text-linkrow-primary-text font-medium">Al Mufawadh Offers Incredible Placement Service Globally, </span>Approved by Government Of India, Ministry Of Labour. Strongly believe in a new beginning, fresh thinking, innovative ideas and value added services.
+              <span className="text-linkrow-primary-text font-medium">
+                Al Mufawadh Offers Incredible Placement Service Globally,{" "}
+              </span>
+              Approved by Government Of India, Ministry Of Labour. Strongly
+              believe in a new beginning, fresh thinking, innovative ideas and
+              value added services.
             </motion.p>
 
             {/* CTAs - staggered fade up */}
             <motion.div
               className="flex flex-wrap gap-4"
-              variants={ctaContainerVariants}
+              variants={heroCtaContainerVariants}
               initial="hidden"
               animate="visible"
               // whileHover={{scale: 1.05, y: -2}}
               // whileTap={{scale: 0.9, y: 1}}
               // transition={}
             >
-              <motion.div variants={ctaItemVariants} style={{ willChange: "transform, opacity" }}>
+              <motion.div
+                variants={heroCtaItemVariants}
+                style={{ willChange: "transform, opacity" }}
+              >
                 <Button
                   size="lg"
                   className="rounded-full bg-linkrow-primary-text px-8 text-linkrow-secondary-bg transition-transform duration-300 hover:scale-105 hover:bg-linkrow-primary-text"
@@ -174,7 +109,10 @@ export function AnimatedHero() {
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </motion.div>
-              <motion.div variants={ctaItemVariants} style={{ willChange: "transform, opacity" }}>
+              <motion.div
+                variants={heroCtaItemVariants}
+                style={{ willChange: "transform, opacity" }}
+              >
                 <Button
                   size="lg"
                   // variant="outline"
@@ -266,5 +204,5 @@ export function AnimatedHero() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,69 +1,15 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
 import { useRef } from "react"
-import { Button } from "@/components/ui/button"
-import { EASING } from "@/lib/animation-config"
-import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import { motion, useInView } from "framer-motion";
+import { EASING } from "@/lib/animation-config"
+import {aboutFadeInUp, aboutContainerVariants} from "@/lib/animation"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 import { TeamSection } from "@/components/section/about-page/team-section"
 import { WhyChooseUsSection } from "@/components/section/about-page/why-us"
 import { BackgroundRippleEffect } from "@/components/ui/background-ripple-effect"
-
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: EASING.smooth },
-  },
-}
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
-  },
-}
-
-function TeamMember({
-  name,
-  role,
-  image,
-}: {
-  name: string
-  role: string
-  image: string
-}) {
-  return (
-    <motion.div
-      className="space-y-4 cursor-pointer"
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: EASING.smooth }}
-      viewport={{ once: true }}
-    >
-      <motion.div
-        className="relative rounded-lg overflow-hidden h-64 sm:h-72 md:h-80"
-        whileHover={{ y: -8 }}
-        transition={{ duration: 0.3, ease: "easeOut" }}
-      >
-        <img src={image || "/placeholder.svg"} alt={name} className="w-full h-full object-cover" />
-      </motion.div>
-
-      <div className="space-y-2">
-        <h3 className="text-lg md:text-xl font-semibold text-linkrow-primary-text">{name}</h3>
-        <p className="text-sm md:text-base text-gray-600">{role}</p>
-        <div className="h-1 w-16 bg-[#1F514C]"></div>
-      </div>
-    </motion.div>
-  )
-}
 
 export default function CompanyPage() {
   const awardsRef = useRef(null)
@@ -76,12 +22,12 @@ export default function CompanyPage() {
         <BackgroundRippleEffect />
         <motion.div
           className="mx-auto max-w-[1400px] px-8 text-center lg:px-16 xl:px-20"
-          variants={containerVariants}
+          variants={aboutContainerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
         >
-          <motion.div variants={fadeInUp}>
+          <motion.div variants={aboutFadeInUp}>
             <Badge
                 asChild
                 className="px-3 py-1 text-sm rounded-2xl font-medium bg-linkrow-badge-bg"
@@ -93,11 +39,11 @@ export default function CompanyPage() {
               </Badge>
           </motion.div>
 
-          <motion.h1 className="text-5xl md:text-6xl font-400 text-linkrow-primary-text my-6" variants={fadeInUp}>
+          <motion.h1 className="text-5xl md:text-6xl font-400 text-linkrow-primary-text my-6" variants={aboutFadeInUp}>
             Who we are
           </motion.h1>
 
-          <motion.p className="text-lg text-linkrow-badge-text max-w-2xl mx-auto" variants={fadeInUp}>
+          <motion.p className="text-lg text-linkrow-badge-text max-w-2xl mx-auto" variants={aboutFadeInUp}>
             Building stronger teams and empowering businesses through tailored recruitment solutions and expert talent
             acquisition
           </motion.p>

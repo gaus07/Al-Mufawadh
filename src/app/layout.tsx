@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { Parkinsans } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "@/components/section/navbar";
-import { FooterSection } from "@/components/section/footer";
+import { Navbar } from "@/components/layout/navbar";
+import { FooterSection } from "@/components/layout/footer";
 
 const parkinsans = Parkinsans({
   subsets: ["latin"],

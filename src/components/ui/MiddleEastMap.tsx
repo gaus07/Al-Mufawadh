@@ -4,7 +4,7 @@ import { useMemo, useRef } from "react";
 import DottedMap from "dotted-map";
 
 export default function MiddleEastMap() {
-  const svgRef = useRef<SVGSVGElement>(null);
+  // const svgRef = useRef<SVGSVGElement>(null);
 
   const pins = [
     { lat: 20.5937, lng: 78.9629, label: "India", color: "#0a2b28" },

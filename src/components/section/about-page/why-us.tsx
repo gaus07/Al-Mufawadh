@@ -6,15 +6,6 @@ import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import Image from "next/image";
 
-const fadeInUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: EASING.smooth },
-  },
-};
-
 const reasonsCards = [
   {
     icon: <Image src="/icons/home_feature_frame-1.svg" alt="Tailored Solutions" width={24} height={24} />,

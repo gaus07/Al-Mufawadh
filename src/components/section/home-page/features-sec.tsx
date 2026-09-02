@@ -1,75 +1,19 @@
-"use client"
+"use client";
 
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
-import { EASING } from "@/lib/animation-config"
-import { Badge } from "@/components/ui/badge"
-import Image from "next/image"
-import Link from "next/link"
-
-const badgeVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: EASING.smooth },
-  },
-}
-
-const headingVariants = {
-  hidden: { opacity: 0, y: 25 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: EASING.smooth, delay: 0.15 },
-  },
-}
-
-const paragraphVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: EASING.smooth, delay: 0.35 },
-  },
-}
-
-const buttonVariants = {
-  hidden: { opacity: 0, y: 15 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: EASING.smooth, delay: 0.5 },
-  },
-}
-
-const decorationVariants = {
-  hidden: { opacity: 0, scale: 0.85 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.9, ease: EASING.smooth },
-  },
-}
-
-const leftCardVariants = {
-  hidden: { opacity: 0, x: -40 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.7, ease: EASING.smooth },
-  },
-}
-
-const rightCardVariants = {
-  hidden: { opacity: 0, x: 40 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 0.7, ease: EASING.smooth },
-  },
-}
+import Link from "next/link";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { Badge } from "@/components/ui/badge";
+import {
+  featureBadgeVariants,
+  featureHeadingVariants,
+  featureParagraphVariants,
+  featureButtonVariants,
+  featureDecorationVariants,
+  featureLeftCardVariants,
+  featureRightCardVariants,
+} from "@/lib/animation";
 
 export function FeaturesSection() {
   return (
@@ -80,9 +24,11 @@ export function FeaturesSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={badgeVariants}
+            variants={featureBadgeVariants}
           >
-            <Badge className="px-3 py-1 text-sm rounded-2xl font-medium text-linkrow-primary-text bg-linkrow-badge-bg">About Us</Badge>
+            <Badge className="px-3 py-1 text-sm rounded-2xl font-medium text-linkrow-primary-text bg-linkrow-badge-bg">
+              About Us
+            </Badge>
           </motion.div>
 
           <motion.h2
@@ -90,7 +36,7 @@ export function FeaturesSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={headingVariants}
+            variants={featureHeadingVariants}
           >
             Platform designed to simplify hiring and deliver better hires.
           </motion.h2>
@@ -100,22 +46,26 @@ export function FeaturesSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={paragraphVariants}
+            variants={featureParagraphVariants}
           >
-            With personalized solutions tailored to your needs, we connect you with the best businesses quickly and
-            efficiently, helping you build stronger, more effective person.
+            With personalized solutions tailored to your needs, we connect you
+            with the best businesses quickly and efficiently, helping you build
+            stronger, more effective person.
           </motion.p>
 
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={buttonVariants}
+            variants={featureButtonVariants}
           >
-            <Button size="lg" className="rounded-full bg-linkrow-primary-text px-8 text-linkrow-secondary-bg transition-transform duration-300 hover:scale-105 hover:bg-linkrow-primary-text">
+            <Button
+              size="lg"
+              className="rounded-full bg-linkrow-primary-text px-8 text-linkrow-secondary-bg transition-transform duration-300 hover:scale-105 hover:bg-linkrow-primary-text"
+            >
               <Link href="/about">
-              About Al Mufawadh
-              {/* <ArrowRight className="ml-2 h-5 w-5" /> */}
+                About Al Mufawadh
+                {/* <ArrowRight className="ml-2 h-5 w-5" /> */}
               </Link>
             </Button>
           </motion.div>
@@ -128,9 +78,12 @@ export function FeaturesSection() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={decorationVariants}
+            variants={featureDecorationVariants}
           >
-            <div className="relative flex items-center justify-center" style={{ width: 650, height: 650 }}>
+            <div
+              className="relative flex items-center justify-center"
+              style={{ width: 650, height: 650 }}
+            >
               {/* rectangle-1 */}
               <div
                 style={{
@@ -182,7 +135,8 @@ export function FeaturesSection() {
                   borderRadius: "52px",
                   border: "3px solid var(--stroke)",
                   opacity: 0.8,
-                  boxShadow: "0 24px 48px -12px #0a0d1214, 0 12px 28px -8px #0a0d1214, 0 6px 8px -4px #0a0d1214",
+                  boxShadow:
+                    "0 24px 48px -12px #0a0d1214, 0 12px 28px -8px #0a0d1214, 0 6px 8px -4px #0a0d1214",
                   background: "transparent",
                 }}
               />
@@ -196,15 +150,43 @@ export function FeaturesSection() {
                   border: "3px solid var(--stroke)",
                   background: "white",
                   opacity: 1,
-                  boxShadow: "0 24px 48px -12px #0a0d1214, 0 12px 28px -8px #0a0d1208, 0 6px 8px -4px #0a0d120a",
+                  boxShadow:
+                    "0 24px 48px -12px #0a0d1214, 0 12px 28px -8px #0a0d1208, 0 6px 8px -4px #0a0d120a",
                 }}
               />
               {/* central icon */}
               <div style={{ position: "relative", zIndex: 30 }}>
-                <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="12" y="56" width="32" height="32" rx="6" fill="#164e4e" />
-                  <rect x="34" y="34" width="32" height="32" rx="6" fill="#1d5c5c" />
-                  <rect x="56" y="12" width="32" height="32" rx="6" fill="#2a7070" />
+                <svg
+                  width="100"
+                  height="100"
+                  viewBox="0 0 100 100"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    x="12"
+                    y="56"
+                    width="32"
+                    height="32"
+                    rx="6"
+                    fill="#164e4e"
+                  />
+                  <rect
+                    x="34"
+                    y="34"
+                    width="32"
+                    height="32"
+                    rx="6"
+                    fill="#1d5c5c"
+                  />
+                  <rect
+                    x="56"
+                    y="12"
+                    width="32"
+                    height="32"
+                    rx="6"
+                    fill="#2a7070"
+                  />
                 </svg>
               </div>
             </div>
@@ -219,36 +201,41 @@ export function FeaturesSection() {
             {/* Top Left - Tailored Solutions */}
             <motion.div
               className="w-full sm:w-80 h-60 rounded-2xl bg-linkrow-secondary-bg p-4 shadow-lg transition-all duration-700 hover:shadow-xl lg:p-6"
-              variants={leftCardVariants}
+              variants={featureLeftCardVariants}
             >
               <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linkrow-primary-text">
-                <Image 
-                                  src="/icons/home_feature_frame-1.svg"
-                                  alt="Tailored Solutions"
-                                  width={24}
-                                  height={24}
-                                  />
+                <Image
+                  src="/icons/home_feature_frame-1.svg"
+                  alt="Tailored Solutions"
+                  width={24}
+                  height={24}
+                />
               </div>
-              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">Tailored Solutions</h3>
+              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">
+                Tailored Solutions
+              </h3>
               <p className="leading-relaxed text-linkrow-badge-text">
-                Custom recruitment strategies designed for your unique business needs.
+                Custom recruitment strategies designed for your unique business
+                needs.
               </p>
             </motion.div>
 
             {/* Top Right - Access to Top Talent */}
             <motion.div
               className="w-full sm:w-80 h-60 rounded-2xl bg-linkrow-secondary-bg p-4 shadow-lg transition-all duration-700 hover:shadow-xl lg:p-6"
-              variants={rightCardVariants}
+              variants={featureRightCardVariants}
             >
               <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linkrow-primary-text">
-                <Image 
-                                  src="/icons/home_feature_frame-2.svg"
-                                  alt="Access to Top Talent"
-                                  width={24}
-                                  height={24}
-                                  />
+                <Image
+                  src="/icons/home_feature_frame-2.svg"
+                  alt="Access to Top Talent"
+                  width={24}
+                  height={24}
+                />
               </div>
-              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">Access to Top Talent</h3>
+              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">
+                Access to Top Talent
+              </h3>
               <p className="leading-relaxed text-linkrow-badge-text">
                 Connect with highly qualified candidates across industries.
               </p>
@@ -257,36 +244,41 @@ export function FeaturesSection() {
             {/* Bottom Left - Faster Hiring */}
             <motion.div
               className="w-full sm:w-80 h-60 rounded-2xl bg-linkrow-secondary-bg p-4 shadow-lg transition-all duration-700 hover:shadow-xl lg:p-6"
-              variants={leftCardVariants}
+              variants={featureLeftCardVariants}
             >
               <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linkrow-primary-text">
-                <Image 
-                                  src="/icons/home_feature_frame-3.svg"
-                                  alt="Faster Hiring"
-                                  width={24}
-                                  height={24}
-                                  />
+                <Image
+                  src="/icons/home_feature_frame-3.svg"
+                  alt="Faster Hiring"
+                  width={24}
+                  height={24}
+                />
               </div>
-              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">Our Network</h3>
+              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">
+                Our Network
+              </h3>
               <p className="leading-relaxed text-linkrow-badge-text">
-                Headquartered in Mumbai with on-ground offices across India and the Middle East.
+                Headquartered in Mumbai with on-ground offices across India and
+                the Middle East.
               </p>
             </motion.div>
 
             {/* Bottom Right - Effortless Integration */}
             <motion.div
               className="w-full sm:w-80 h-60 rounded-2xl bg-linkrow-secondary-bg p-4 shadow-lg transition-all duration-700 hover:shadow-xl lg:p-6"
-              variants={rightCardVariants}
+              variants={featureRightCardVariants}
             >
               <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linkrow-primary-text">
-                <Image 
-                                  src="/icons/home_feature_frame-4.svg"
-                                  alt="Effortless Integration"
-                                  width={24}
-                                  height={24}
-                                  />
+                <Image
+                  src="/icons/home_feature_frame-4.svg"
+                  alt="Effortless Integration"
+                  width={24}
+                  height={24}
+                />
               </div>
-              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">Quality Assurance</h3>
+              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">
+                Quality Assurance
+              </h3>
               <p className="leading-relaxed text-linkrow-badge-text">
                 Compliance-first hiring and strict verification at every step.
               </p>
@@ -295,5 +287,5 @@ export function FeaturesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,21 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
 import { EASING } from "@/lib/animation-config"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 0.1,
-    },
-  },
-}
+import { teamContainerVariants } from "@/lib/animation"
 
 function TeamMember({
   name,
@@ -92,7 +81,7 @@ export function TeamSection() {
           {/* Team Members Grid */}
           <motion.div
             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8"
-            variants={containerVariants}
+            variants={teamContainerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}

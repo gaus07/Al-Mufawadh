@@ -1,77 +1,63 @@
-import Image from "next/image"
-import { ArrowRight } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import Link from "next/link"
-import { EASING } from "@/lib/animation-config"
-import { motion, Variants } from 'framer-motion';
-
-const badgeVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: EASING.smooth },
-  },
-}
-
-const headingVariants = {
-  hidden: { opacity: 0, y: 25 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.6, ease: EASING.smooth, delay: 0.15 },
-  },
-}
-
-const paragraphVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: EASING.smooth, delay: 0.35 },
-  },
-}
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight } from "lucide-react";
+import {
+  solutionBadgeVariants,
+  solutionHeadingVariants,
+  solutionParagraphVariants,
+} from "@/lib/animation";
 
 export function SolutionSection() {
   return (
-      <section
+    <section
       className="overflow-hidden text-white"
       style={{ backgroundColor: "var(--linkrow-primary-text)" }}
     >
       {/* How It Works Content */}
       <div className="relative">
         <div className="relative mx-auto max-w-[1400px] px-8 py-14 md:px-12 lg:px-16 lg:py-20">
-            <motion.div 
-             initial="hidden"
+          <motion.div
+            initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={badgeVariants}
+            variants={solutionBadgeVariants}
+          >
+            <Badge
+              asChild
+              className="px-3 py-1 text-sm rounded-2xl font-medium mb-6 text-linkrow-badge2-text bg-linkrow-badge2-bg"
             >
-          <Badge asChild className="px-3 py-1 text-sm rounded-2xl font-medium mb-6 text-linkrow-badge2-text bg-linkrow-badge2-bg">
-            <Link href="#">How it works</Link>
-          </Badge>
+              <Link href="#">How it works</Link>
+            </Badge>
           </motion.div>
 
-          <motion.h3 
-           initial="hidden"
+          <motion.h3
+            initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={headingVariants}
-          className="mb-4 font-medium leading-tight tracking-tight text-linkrow-secondary-bg">
-            <span className="block text-3xl sm:text-4xl lg:text-5xl">Efficient process that matches <br/> talent with opportunity.</span>
+            variants={solutionHeadingVariants}
+            className="mb-4 font-medium leading-tight tracking-tight text-linkrow-secondary-bg"
+          >
+            <span className="block text-3xl sm:text-4xl lg:text-5xl">
+              Efficient process that matches <br /> talent with opportunity.
+            </span>
             {/* <span className="block text-3xl sm:text-4xl lg:text-5xl">businesses with the best talent.</span> */}
           </motion.h3>
 
-          <motion.p 
-           initial="hidden"
+          <motion.p
+            initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            variants={paragraphVariants}
-          className="mb-12 max-w-3xl text-base text-linkrow-secondary-bg md:text-lg">
-            We work with employers to define requirements and with candidates to prepare, screen and mobilize — delivering the right hire and the right job.
+            variants={solutionParagraphVariants}
+            className="mb-12 max-w-3xl text-base text-linkrow-secondary-bg md:text-lg"
+          >
+            We work with employers to define requirements and with candidates to
+            prepare, screen and mobilize — delivering the right hire and the
+            right job.
           </motion.p>
-          
+
           {/* Steps */}
           <div className="grid gap-10 md:grid-cols-3">
             {[
@@ -100,7 +86,9 @@ export function SolutionSection() {
                 {/* Accent divider line */}
                 <div className="mt-6 h-px w-full rounded-full bg-gradient-to-r from-linkrow-badge2-text to-white/10" />
 
-                <h4 className="mt-6 text-xl font-semibold md:text-2xl text-linkrow-secondary-bg">{s.title}</h4>
+                <h4 className="mt-6 text-xl font-semibold md:text-2xl text-linkrow-secondary-bg">
+                  {s.title}
+                </h4>
                 <p className="mt-3 text-linkrow-secondary-bg">{s.desc}</p>
               </div>
             ))}
@@ -125,13 +113,18 @@ export function SolutionSection() {
           {/* Overlay content */}
           <div className="absolute inset-0 flex flex-col items-center justify-center px-1 lg:px-6 py-40 lg:py-90 text-center">
             <h3 className="text-2xl font-medium leading-tight text-linkrow-secondary-bg sm:text-3xl md:text-4xl lg:text-5xl">
-              <span className="block">Get started with Al Mufawadh today and</span>
-              <span className="block">discover a smarter, faster way to get hired.</span>
+              <span className="block">
+                Get started with Al Mufawadh today and
+              </span>
+              <span className="block">
+                discover a smarter, faster way to get hired.
+              </span>
             </h3>
 
             <Button
               size="lg"
-              className="mt-6 rounded-full bg-linkrow-secondary-bg px-6 py-6 text-base font-medium text-linkrow-primary-text hover:bg-linkrow-secondary-bg sm:px-8">
+              className="mt-6 rounded-full bg-linkrow-secondary-bg px-6 py-6 text-base font-medium text-linkrow-primary-text hover:bg-linkrow-secondary-bg sm:px-8"
+            >
               Find your talent
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -139,5 +132,5 @@ export function SolutionSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
