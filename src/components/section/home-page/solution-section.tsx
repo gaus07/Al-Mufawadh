@@ -3,6 +3,35 @@ import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
+import { EASING } from "@/lib/animation-config"
+import { motion, Variants } from 'framer-motion';
+
+const badgeVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: EASING.smooth },
+  },
+}
+
+const headingVariants = {
+  hidden: { opacity: 0, y: 25 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: EASING.smooth, delay: 0.15 },
+  },
+}
+
+const paragraphVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: EASING.smooth, delay: 0.35 },
+  },
+}
 
 export function SolutionSection() {
   return (
@@ -13,19 +42,36 @@ export function SolutionSection() {
       {/* How It Works Content */}
       <div className="relative">
         <div className="relative mx-auto max-w-[1400px] px-8 py-14 md:px-12 lg:px-16 lg:py-20">
+            <motion.div 
+             initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={badgeVariants}
+            >
           <Badge asChild className="px-3 py-1 text-sm rounded-2xl font-medium mb-6 text-linkrow-badge2-text bg-linkrow-badge2-bg">
             <Link href="#">How it works</Link>
           </Badge>
+          </motion.div>
 
-          <h3 className="mb-4 font-medium leading-tight tracking-tight text-linkrow-secondary-bg">
-            <span className="block text-3xl sm:text-4xl lg:text-5xl">Efficient process that matches talent with opportunity.</span>
+          <motion.h3 
+           initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={headingVariants}
+          className="mb-4 font-medium leading-tight tracking-tight text-linkrow-secondary-bg">
+            <span className="block text-3xl sm:text-4xl lg:text-5xl">Efficient process that matches <br/> talent with opportunity.</span>
             {/* <span className="block text-3xl sm:text-4xl lg:text-5xl">businesses with the best talent.</span> */}
-          </h3>
+          </motion.h3>
 
-          <p className="mb-12 max-w-3xl text-base text-linkrow-secondary-bg md:text-lg">
+          <motion.p 
+           initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.3 }}
+            variants={paragraphVariants}
+          className="mb-12 max-w-3xl text-base text-linkrow-secondary-bg md:text-lg">
             We work with employers to define requirements and with candidates to prepare, screen and mobilize — delivering the right hire and the right job.
-          </p>
-
+          </motion.p>
+          
           {/* Steps */}
           <div className="grid gap-10 md:grid-cols-3">
             {[
