@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Parkinsans } from "next/font/google";
+// @ts-expect-error CSS import handled by Next.js
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { FooterSection } from "@/components/layout/footer";
