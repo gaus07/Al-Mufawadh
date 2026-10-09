@@ -65,7 +65,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded-md">
-            <Image src="/logo2.png" alt="Logo" width={34} height={34} />
+            <Image src="/icon.png" alt="Logo" width={34} height={34} />
           </div>
           <span className="text-xl font-semibold text-linkrow-primary-text">Al Mufawadh</span>
         </Link>
