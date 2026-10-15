@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import MiddleEastMap from "@/components/ui/MiddleEastMap";
+import { HeroSearch } from "@/components/section/home-page/hero-search";
 import { homeContent } from "@/data/home";
 import {
   heroBadgeVariants,
@@ -202,6 +203,10 @@ export function AnimatedHero() {
               </div>
             </div>
           </div> */}
+        </div>
+
+        <div className="mt-12 lg:mt-16">
+          <HeroSearch />
         </div>
       </div>
     </section>
