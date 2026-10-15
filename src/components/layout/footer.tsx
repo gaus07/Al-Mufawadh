@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import Image from "next/image"
+import { siteContent } from "@/data/site"
 
 export function FooterSection() {
   return (
@@ -17,8 +18,8 @@ export function FooterSection() {
                 <Image src="/logo2.png" alt="Logo" width={34} height={34} />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-linkrow-primary-text">Al Mufawadh</h3>
-                <p className="text-sm font-medium text-linkrow-primary-text">Placement Service</p>
+                <h3 className="text-lg font-bold text-linkrow-primary-text">{siteContent.name}</h3>
+                <p className="text-sm font-medium text-linkrow-primary-text">{siteContent.descriptor}</p>
               </div>
             </div>
 
@@ -90,13 +91,13 @@ export function FooterSection() {
           <div>
             <h4 className="mb-6 text-lg font-bold text-linkrow-primary-text">Contact Us</h4>
             <address className="not-italic text-base leading-relaxed text-linkrow-badge-text ">
-              Al Mufawadh Placements and services, 691, Irani Bldg, NM Joshi Marg, 2<sup>nd</sup> X Road, Byculla (W), Mum - 400027, INDIA
+              {siteContent.contact.address}
               <br />
-              Tel - +91 22 23007630 
+              Tel - {siteContent.contact.telephone}
               <br />
-              Mob: +91 99207 37630
+              Mob: {siteContent.contact.mobile}
               <br />
-              Email - info@almufawadhplacement.com
+              Email - {siteContent.contact.email}
             </address>
           </div>
         </div>

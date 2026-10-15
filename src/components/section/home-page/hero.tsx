@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import MiddleEastMap from "@/components/ui/MiddleEastMap";
+import { homeContent } from "@/data/home";
 import {
   heroBadgeVariants,
   heroHeadlineVariants,
@@ -48,7 +49,7 @@ export function AnimatedHero() {
               >
                 <Link href="#">
                   {" "}
-                  <span className="text-linkrow-primary-text">250+</span>trusted
+                  <span className="text-linkrow-primary-text">{homeContent.hero.partnerCount}</span> trusted
                   partners
                 </Link>
               </Badge>
