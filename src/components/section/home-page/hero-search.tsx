@@ -1,18 +1,25 @@
 "use client";
 
-import { useState, type FormEvent, type ReactNode } from "react";
-import { MapPin, Search, Users } from "lucide-react";
+import { useState, type FormEvent } from "react";
+import { Check, ChevronsUpDown, MapPin, Search, Users } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-
 import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
 import { Field, FieldLabel } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import { cn } from "@/lib/utils";
 
 export type HeroSearchValues = {
   location: string;
@@ -32,6 +39,7 @@ export function HeroSearch({ onSubmit }: HeroSearchProps) {
   });
 
   const [error, setError] = useState("");
+  const [isJobTypeOpen, setIsJobTypeOpen] = useState(false);
 
   function updateValue(field: keyof HeroSearchValues, value: string) {
     setValues((current) => ({ ...current, [field]: value }));
@@ -73,7 +81,7 @@ export function HeroSearch({ onSubmit }: HeroSearchProps) {
               className="size-[18px] shrink-0 text-muted-foreground"
             />
 
-            <input
+            <Input
               id="hero-location"
               value={values.location}
               onChange={(event) => updateValue("location", event.target.value)}
@@ -81,49 +89,92 @@ export function HeroSearch({ onSubmit }: HeroSearchProps) {
               autoComplete="off"
               aria-invalid={Boolean(error)}
               aria-describedby={error ? "hero-search-error" : undefined}
-              className="h-full w-full min-w-0 bg-transparent text-sm text-foreground outline-none placeholder:text-muted-foreground"
+              className="h-full min-w-0 border-0 bg-transparent px-0 text-sm shadow-none focus-visible:ring-0"
             />
           </div>
         </Field>
 
-        {/* Candidates: entire field is the SelectTrigger */}
+        {/* Job type searchable combobox */}
         <Field>
           <FieldLabel
-            htmlFor="name"
+            htmlFor="hero-person"
             className="text-md font-medium text-foreground"
           >
             Job Type
           </FieldLabel>
-          <Select
-            value={values.person}
-            onValueChange={(value) => updateValue("person", value)}
-          >
-            <SelectTrigger
-              id="hero-person"
-              aria-label="Candidate type"
-              className="h-[42px] w-full min-w-0 gap-2.5 rounded-lg border border-border bg-background px-3 text-sm text-foreground shadow-sm focus:ring-2 focus:ring-ring/30"
-            >
-              <Users
-                aria-hidden="true"
-                className="size-[18px] shrink-0 text-muted-foreground"
-              />
-
-              <SelectValue
-                placeholder="Candidate type"
-                className="min-w-0 flex-1 text-left"
-              />
-            </SelectTrigger>
-
-            <SelectContent
-              position="popper"
+          <Popover open={isJobTypeOpen} onOpenChange={setIsJobTypeOpen}>
+            <PopoverTrigger asChild>
+              <Button
+                id="hero-person"
+                type="button"
+                variant="outline"
+                role="combobox"
+                aria-label="Job type"
+                className="h-[42px] w-full min-w-0 justify-start gap-2.5 rounded-lg border-border bg-background px-3 text-sm font-normal text-foreground shadow-sm hover:bg-background focus:ring-2 focus:ring-ring/30"
+              >
+                <Users
+                  aria-hidden="true"
+                  className="size-[18px] shrink-0 text-muted-foreground"
+                />
+                <span
+                  className={cn(
+                    "min-w-0 flex-1 truncate text-left",
+                    !values.person && "text-muted-foreground"
+                  )}
+                >
+                  {values.person === "skilled"
+                    ? "Skilled professionals"
+                    : values.person === "technical"
+                      ? "Technical workers"
+                      : values.person === "support"
+                        ? "Support staff"
+                        : "Select job type"}
+                </span>
+                <ChevronsUpDown
+                  aria-hidden="true"
+                  className="size-4 shrink-0 text-muted-foreground"
+                />
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent
               align="start"
-              className="w-[var(--radix-select-trigger-width)] min-w-0"
+              className="w-[var(--radix-popover-trigger-width)] min-w-[220px] p-0"
             >
-              <SelectItem value="skilled">Skilled professionals</SelectItem>
-              <SelectItem value="technical">Technical workers</SelectItem>
-              <SelectItem value="support">Support staff</SelectItem>
-            </SelectContent>
-          </Select>
+              <Command>
+                <CommandInput placeholder="Search job type..." />
+                <CommandList>
+                  <CommandEmpty>No job types found.</CommandEmpty>
+                  <CommandGroup>
+                    {[
+                      ["skilled", "Skilled professionals"],
+                      ["technical", "Technical workers"],
+                      ["support", "Support staff"],
+                    ].map(([value, label]) => (
+                      <CommandItem
+                        key={value}
+                        value={label}
+                        onSelect={() => {
+                          updateValue("person", value);
+                          setIsJobTypeOpen(false);
+                        }}
+                      >
+                        <Check
+                          aria-hidden="true"
+                          className={cn(
+                            "size-4",
+                            values.person === value
+                              ? "opacity-100"
+                              : "opacity-0"
+                          )}
+                        />
+                        {label}
+                      </CommandItem>
+                    ))}
+                  </CommandGroup>
+                </CommandList>
+              </Command>
+            </PopoverContent>
+          </Popover>
         </Field>
 
         {/* Submit */}
