@@ -1,11 +1,14 @@
-import Link from "next/link"
-import { ArrowRight } from "lucide-react"
-import Image from "next/image"
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
+import { siteContent } from "@/data/site";
 
 export function FooterSection() {
   return (
-    <footer className=""
-    style={{ backgroundColor: "var(--linkrow-section-bg)" }}>
+    <footer
+      className=""
+      style={{ backgroundColor: "var(--linkrow-section-bg)" }}
+    >
       {/* Main Footer Content */}
       <div className="mx-auto max-w-[1400px] px-8 py-16 lg:px-16 xl:px-20">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
@@ -17,12 +20,18 @@ export function FooterSection() {
                 <Image src="/logo2.png" alt="Logo" width={34} height={34} />
               </div>
               <div>
-                <h3 className="text-lg font-bold text-linkrow-primary-text">Al Mufawadh</h3>
-                <p className="text-sm font-medium text-linkrow-primary-text">Placement Service</p>
+                <h3 className="text-lg font-bold text-linkrow-primary-text">
+                  {siteContent.name}
+                </h3>
+                <p className="text-sm font-medium text-linkrow-primary-text">
+                  {siteContent.descriptor}
+                </p>
               </div>
             </div>
 
-            <p className="mb-6 text-base text-linkrow-badge-text">Stay in the loop and sign up for the Wardiere newsletter:</p>
+            <p className="mb-6 text-base text-linkrow-badge-text">
+              Stay in the loop and sign up for the Wardiere newsletter:
+            </p>
 
             {/* Email Input */}
             <div className="relative flex items-center">
@@ -39,20 +48,31 @@ export function FooterSection() {
 
           {/* Latest Jobs */}
           <div>
-            <h4 className="mb-6 text-lg font-bold text-linkrow-primary-text">Latest Jobs</h4>
+            <h4 className="mb-6 text-lg font-bold text-linkrow-primary-text">
+              Latest Jobs
+            </h4>
             <ul className="space-y-4">
               <li>
-                <Link href="#" className="text-base text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text">
+                <Link
+                  href="#"
+                  className="text-base text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text"
+                >
                   Semi Skilled
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-base text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text">
+                <Link
+                  href="#"
+                  className="text-base text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text"
+                >
                   Foreman & Labour
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-base text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text">
+                <Link
+                  href="#"
+                  className="text-base text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text"
+                >
                   Electrical Supervisors
                 </Link>
               </li>
@@ -61,25 +81,39 @@ export function FooterSection() {
 
           {/* Documentation */}
           <div>
-            <h4 className="mb-6 text-lg font-bold text-linkrow-primary-text">Documentation</h4>
+            <h4 className="mb-6 text-lg font-bold text-linkrow-primary-text">
+              Documentation
+            </h4>
             <ul className="space-y-4">
               <li>
-                <Link href="#" className="text-base text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text">
+                <Link
+                  href="#"
+                  className="text-base text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text"
+                >
                   Help Centre
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-base text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text">
+                <Link
+                  href="#"
+                  className="text-base text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text"
+                >
                   Contact
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-base text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text">
+                <Link
+                  href="#"
+                  className="text-base text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text"
+                >
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="#" className="text-base text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text">
+                <Link
+                  href="#"
+                  className="text-base text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text"
+                >
                   Privacy Policy
                 </Link>
               </li>
@@ -88,15 +122,17 @@ export function FooterSection() {
 
           {/* Contact Us */}
           <div>
-            <h4 className="mb-6 text-lg font-bold text-linkrow-primary-text">Contact Us</h4>
+            <h4 className="mb-6 text-lg font-bold text-linkrow-primary-text">
+              Contact Us
+            </h4>
             <address className="not-italic text-base leading-relaxed text-linkrow-badge-text ">
-              Al Mufawadh Placements and services, 691, Irani Bldg, NM Joshi Marg, 2<sup>nd</sup> X Road, Byculla (W), Mum - 400027, INDIA
+              {siteContent.contact.address}
               <br />
-              Tel - +91 22 23007630 
+              Tel - {siteContent.contact.telephone}
               <br />
-              Mob: +91 99207 37630
+              Mob: {siteContent.contact.mobile}
               <br />
-              Email - info@almufawadhplacement.com
+              Email - {siteContent.contact.email}
             </address>
           </div>
         </div>
@@ -105,12 +141,17 @@ export function FooterSection() {
       {/* Bottom Bar */}
       <div className="border-t border-[#e5e5e5]">
         <div className="mx-auto flex max-w-[1400px] flex-col items-center justify-between gap-4 px-8 py-6 sm:flex-row lg:px-16 xl:px-20">
-          <p className="text-sm text-linkrow-badge-text">© Wardiere Inc. All Rights Reserved 2023</p>
-          <Link href="#" className="text-sm text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text">
+          <p className="text-sm text-linkrow-badge-text">
+            © Wardiere Inc. All Rights Reserved 2023
+          </p>
+          <Link
+            href="#"
+            className="text-sm text-linkrow-badge-text transition-colors hover:text-linkrow-primary-text"
+          >
             Terms & Conditions
           </Link>
         </div>
       </div>
     </footer>
-  )
+  );
 }

@@ -6,18 +6,12 @@ import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
+import { navigationItems } from "@/data/navigation";
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const firstLinkRef = useRef<HTMLAnchorElement | null>(null);
-
-  const navItems = [
-    { label: "Home", href: "/" },
-    { label: "Company", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Process", href: "/process" },
-    { label: "Jobs", href: "/jobs" },
-  ];
+  const navItems = navigationItems;
 
   // close on Escape
   useEffect(() => {
@@ -132,7 +126,7 @@ export function Navbar() {
               <div className="flex items-center justify-between p-6 border-b border-border/40">
                 <Link href="/" className="flex items-center gap-2" onClick={() => setIsOpen(false)}>
                   <div className="flex h-8 w-8 items-center justify-center rounded-md">
-                    <Image src="/logo2.png" alt="Logo" width={34} height={34} />
+                    <Image src="/icon.png" alt="Logo" width={34} height={34} />
                   </div>
                   <span className="text-lg font-semibold text-linkrow-primary-text">Al Mufawadh</span>
                 </Link>

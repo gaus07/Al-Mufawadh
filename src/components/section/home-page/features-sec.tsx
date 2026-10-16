@@ -5,6 +5,7 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import { homeContent } from "@/data/home";
 import {
   featureBadgeVariants,
   featureHeadingVariants,
@@ -17,8 +18,18 @@ import {
 
 export function FeaturesSection() {
   return (
-    <section className="relative overflow-hidden bg-linkrow-section-bg py-20 lg:py-24">
-      <div className="mx-auto max-w-[1400px] px-8 lg:px-16 xl:px-20">
+    <section className="relative overflow-hidden py-20 lg:py-24">
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/backgrounds/second.png"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+        />
+        <div className="absolute inset-0" />
+      </div>
+      <div className="mx-auto max-w-350 px-8 lg:px-16 xl:px-20">
         <div className="mb-16 text-center">
           <motion.div
             initial="hidden"
@@ -198,6 +209,31 @@ export function FeaturesSection() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
           >
+            {homeContent.features.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                className="w-full sm:w-80 h-60 rounded-2xl bg-linkrow-secondary-bg p-4 shadow-lg transition-all duration-700 hover:shadow-xl lg:p-6"
+                variants={
+                  index % 2 === 0
+                    ? featureLeftCardVariants
+                    : featureRightCardVariants
+                }
+              >
+                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linkrow-primary-text">
+                  <Image src={feature.icon} alt="" width={24} height={24} />
+                </div>
+                <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">
+                  {feature.title}
+                </h3>
+                <p className="leading-relaxed text-linkrow-badge-text">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Legacy layout retained below for visual reference during the content migration. */}
+          <div className="hidden">
             {/* Top Left - Tailored Solutions */}
             <motion.div
               className="w-full sm:w-80 h-60 rounded-2xl bg-linkrow-secondary-bg p-4 shadow-lg transition-all duration-700 hover:shadow-xl lg:p-6"
@@ -283,7 +319,7 @@ export function FeaturesSection() {
                 Compliance-first hiring and strict verification at every step.
               </p>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
