@@ -1,8 +1,17 @@
 "use client";
 
 import { useState, type FormEvent, type ReactNode } from "react";
-import { CalendarDays, ChevronDown, MapPin, Search, Users } from "lucide-react";
+import { CalendarDays, MapPin, Search, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export type HeroSearchValues = {
   location: string;
@@ -68,32 +77,49 @@ export function HeroSearch({ onSubmit }: HeroSearchProps) {
           htmlFor="hero-date"
           icon={<CalendarDays aria-hidden="true" />}
         >
-          <input
-            id="hero-date"
-            type="date"
-            value={values.date}
-            onChange={(event) => updateValue("date", event.target.value)}
-            className="w-full min-w-0 bg-transparent text-sm text-foreground outline-none"
-          />
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                id="hero-date"
+                type="button"
+                variant="ghost"
+                className="h-auto min-w-0 flex-1 justify-start p-0 text-left text-sm font-normal text-foreground hover:bg-transparent data-[empty=true]:text-muted-foreground"
+                data-empty={!values.date}
+              >
+                {values.date ? formatDate(values.date) : "Select a date"}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-auto p-0" align="start">
+              <Calendar
+                mode="single"
+                selected={parseDate(values.date)}
+                onSelect={(date) => {
+                  if (date) updateValue("date", serializeDate(date));
+                }}
+                disabled={{ before: startOfToday() }}
+              />
+            </PopoverContent>
+          </Popover>
         </Field>
 
-        <Field
-          label="Candidates"
-          htmlFor="hero-person"
-          icon={<Users aria-hidden="true" />}
-          trailing={<ChevronDown aria-hidden="true" />}
-        >
-          <select
-            id="hero-person"
+        <Field label="Candidates" htmlFor="hero-person" icon={<Users aria-hidden="true" />}>
+          <Select
             value={values.person}
-            onChange={(event) => updateValue("person", event.target.value)}
-            className="w-full min-w-0 appearance-none bg-transparent text-sm text-foreground outline-none"
+            onValueChange={(value) => updateValue("person", value)}
           >
-            <option value="">Candidate type</option>
-            <option value="skilled">Skilled professionals</option>
-            <option value="technical">Technical workers</option>
-            <option value="support">Support staff</option>
-          </select>
+            <SelectTrigger
+              id="hero-person"
+              aria-label="Candidate type"
+              className="h-auto min-w-0 flex-1 border-0 bg-transparent p-0 text-sm shadow-none focus:ring-0"
+            >
+              <SelectValue placeholder="Candidate type" />
+            </SelectTrigger>
+            <SelectContent position="popper" align="start" className="min-w-[var(--radix-select-trigger-width)]">
+              <SelectItem value="skilled">Skilled professionals</SelectItem>
+              <SelectItem value="technical">Technical workers</SelectItem>
+              <SelectItem value="support">Support staff</SelectItem>
+            </SelectContent>
+          </Select>
         </Field>
 
         <Button
@@ -116,6 +142,35 @@ export function HeroSearch({ onSubmit }: HeroSearchProps) {
       </form>
     </div>
   );
+}
+
+function parseDate(value: string) {
+  if (!value) return undefined;
+
+  const [year, month, day] = value.split("-").map(Number);
+  return new Date(year, month - 1, day);
+}
+
+function serializeDate(date: Date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
+function formatDate(value: string) {
+  const date = parseDate(value);
+  return date?.toLocaleDateString(undefined, {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
+}
+
+function startOfToday() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  return today;
 }
 
 type FieldProps = {
