@@ -25,7 +25,7 @@ export function AnimatedHero() {
       ref={containerRef}
       className="relative overflow-hidden bg-background"
     >
-      <div className="absolute inset-0 z-0 opacity-40">
+      <div className="pointer-events-none absolute inset-0 z-0 opacity-30 blur-[4px] transition-opacity duration-500 max-sm:opacity-25">
         <div className="h-full w-full">
           <MiddleEastMap />
         </div>
@@ -34,7 +34,7 @@ export function AnimatedHero() {
       {/* Decorative background elements */}
       <div className="absolute right-0 top-0 h-[600px] w-[800px] bg-gradient-to-bl from-muted/40 to-transparent"></div>
 
-      <div className="mx-auto max-w-[1400px] px-8 py-16 lg:px-16 lg:py-32 xl:px-20">
+      <div className="relative z-10 mx-auto max-w-[1400px] rounded-[2rem] border border-border/60 bg-background/65 px-8 py-16 shadow-lg shadow-primary/5 backdrop-blur-md lg:px-16 lg:py-32 xl:px-20">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-0">
           {/* Left Content */}
           <div className="flex flex-col justify-center">
