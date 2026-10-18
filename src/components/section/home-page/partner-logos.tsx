@@ -85,7 +85,7 @@ export default function PartnerLogos() {
   }
 
   return (
-    <div className="border-t border-border relative w-full overflow-hidden bg-background py-1.5">
+    <div className="relative w-full overflow-hidden bg-background py-1.5">
       <div
         ref={containerRef}
         className={cn(
