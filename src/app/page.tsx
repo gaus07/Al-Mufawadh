@@ -5,6 +5,7 @@ import { FeaturesSection } from "@/components/section/home-page/features-sec";
 import { SolutionSection } from "@/components/section/home-page/solution-section";
 import { AnimatedHero } from "@/components/section/home-page/hero";
 import { OurServices } from "@/components/section/home-page/our-services";
+import { IndustriesSection } from "@/components/section/home-page/industries-section";
 
 export default function Home() {
   return (
@@ -18,6 +19,8 @@ export default function Home() {
       <FeaturesSection />
 
       <OurServices />
+
+      <IndustriesSection />
 
       {/* Our Solution Section */}
       <SolutionSection />
