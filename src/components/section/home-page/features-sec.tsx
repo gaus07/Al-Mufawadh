@@ -2,307 +2,96 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { homeContent } from "@/data/home";
 import {
   featureBadgeVariants,
   featureHeadingVariants,
   featureParagraphVariants,
   featureButtonVariants,
-  featureDecorationVariants,
   featureLeftCardVariants,
-  featureRightCardVariants,
 } from "@/lib/animation";
+
+const cardVariants = featureLeftCardVariants;
 
 export function FeaturesSection() {
   return (
-    <section className="relative overflow-hidden bg-linkrow-section-bg py-20 lg:py-24">
-      <div className="mx-auto max-w-[1400px] px-8 lg:px-16 xl:px-20">
-        <div className="mb-16 text-center">
+    <section className="relative overflow-hidden bg-linkrow-section-bg py-24 sm:py-28 lg:py-32">
+      <div className="pointer-events-none absolute -left-56 top-40 h-[620px] w-[720px] rounded-[50%] bg-linkrow-badge-bg/70 blur-[1px]" aria-hidden="true" />
+      <div className="pointer-events-none absolute -bottom-56 left-1/2 h-96 w-[900px] -translate-x-1/2 rounded-[50%] bg-linkrow-secondary-bg/60" aria-hidden="true" />
+
+      <div className="relative mx-auto max-w-[1400px] px-6 sm:px-10 lg:px-16 xl:px-20">
+        <div className="mx-auto mb-14 max-w-4xl text-center sm:mb-16">
           <motion.div
+            className="mx-auto mb-9 flex size-[68px] items-center justify-center rounded-[18px] bg-linkrow-secondary-bg shadow-[0_12px_24px_rgba(10,13,18,0.12)]"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={featureBadgeVariants}
           >
-            <Badge className="px-3 py-1 text-sm rounded-2xl font-medium text-linkrow-primary-text bg-linkrow-badge-bg">
-              About Us
-            </Badge>
+            <svg viewBox="0 0 28 28" className="size-8" aria-hidden="true">
+              <path d="M27.5 1H20.5V7.5H14V14H7.5V20.5H1V27.5H7.5V21H14V14.5H20.5V21H27.5V14V7V1Z" fill="none" stroke="#AEDA94" strokeWidth="1.6" />
+            </svg>
           </motion.div>
 
           <motion.h2
-            className="mx-auto mb-6 max-w-4xl text-4xl text-linkrow-primary-text font-medium leading-tight tracking-tight lg:text-5xl"
+            className="mx-auto max-w-4xl text-4xl font-medium leading-[1.08] tracking-[-0.04em] text-linkrow-primary-text sm:text-5xl lg:text-[56px]"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={featureHeadingVariants}
           >
-            Platform designed to simplify hiring and deliver better hires.
+            Platform designed to simplify and enhance the hiring process.
           </motion.h2>
 
           <motion.p
-            className="mx-auto mb-10 max-w-3xl text-lg leading-relaxed text-linkrow-badge-text"
+            className="mx-auto mt-7 max-w-3xl text-base leading-7 text-linkrow-badge-text sm:text-lg"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={featureParagraphVariants}
           >
-            With personalized solutions tailored to your needs, we connect you
-            with the best businesses quickly and efficiently, helping you build
-            stronger, more effective person.
+            With personalized solutions tailored to your business needs, we connect you with the best talent quickly and efficiently, helping you build stronger, more effective teams.
           </motion.p>
 
           <motion.div
+            className="mt-10"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={featureButtonVariants}
           >
-            <Button
-              size="lg"
-              className="rounded-full bg-linkrow-primary-text px-8 text-linkrow-secondary-bg transition-transform duration-300 hover:scale-105 hover:bg-linkrow-primary-text"
-            >
+            <Button asChild size="lg" className="h-16 rounded-full bg-linkrow-primary-text px-9 text-base font-semibold text-linkrow-secondary-bg transition-transform duration-300 hover:scale-[1.02] hover:bg-linkrow-primary-text">
               <Link href="/about">
                 About Al Mufawadh
-                {/* <ArrowRight className="ml-2 h-5 w-5" /> */}
+                <svg viewBox="0 0 12 12" className="ml-2 size-3" aria-hidden="true">
+                  <path d="M12 12V9 6 3L9 3V6H6V3H3V0H0V3H3V6H6V9H3V12H6H9H12Z" fill="#AEDA94" />
+                </svg>
               </Link>
             </Button>
           </motion.div>
         </div>
 
-        {/* Features Grid with Center Decoration */}
-        <div className="relative mx-auto max-w-5xl">
-          <motion.div
-            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
-            variants={featureDecorationVariants}
-          >
-            <div
-              className="relative flex items-center justify-center"
-              style={{ width: 650, height: 650 }}
-            >
-              {/* rectangle-1 */}
-              <div
-                style={{
-                  position: "absolute",
-                  width: "618px",
-                  height: "618px",
-                  borderRadius: "180px",
-                  border: "3px solid var(--stroke)",
-                  opacity: 0.2,
-                  boxShadow:
-                    "0 24px 48px -12px rgba(10,13,18,0.22), 0 12px 28px -8px rgba(10,13,18,0.12), 0 6px 8px -4px rgba(10,13,18,0.08)",
-                  background: "transparent",
-                }}
-              />
-              {/* rectangle-2 */}
-              <div
-                style={{
-                  position: "absolute",
-                  width: "498px",
-                  height: "498px",
-                  borderRadius: "140px",
-                  border: "3px solid var(--stroke)",
-                  opacity: 0.4,
-                  boxShadow:
-                    "0 24px 48px -12px rgba(10,13,18,0.22), 0 12px 28px -8px rgba(10,13,18,0.12), 0 6px 8px -4px rgba(10,13,18,0.08)",
-                  background: "transparent",
-                }}
-              />
-              {/* rectangle-3 */}
-              <div
-                style={{
-                  position: "absolute",
-                  width: "372px",
-                  height: "372px",
-                  borderRadius: "111px",
-                  border: "3px solid var(--stroke)",
-                  opacity: 0.6,
-                  boxShadow:
-                    "0 24px 48px -12px rgba(10,13,18,0.22), 0 12px 28px -8px rgba(10,13,18,0.12), 0 6px 8px -4px rgba(10,13,18,0.08)",
-                  background: "transparent",
-                }}
-              />
-              {/* rectangle-4 */}
-              <div
-                style={{
-                  position: "absolute",
-                  width: "268px",
-                  height: "268px",
-                  borderRadius: "52px",
-                  border: "3px solid var(--stroke)",
-                  opacity: 0.8,
-                  boxShadow:
-                    "0 24px 48px -12px #0a0d1214, 0 12px 28px -8px #0a0d1214, 0 6px 8px -4px #0a0d1214",
-                  background: "transparent",
-                }}
-              />
-              {/* rectangle-5 */}
-              <div
-                style={{
-                  position: "absolute",
-                  width: "176px",
-                  height: "176px",
-                  borderRadius: "52px",
-                  border: "3px solid var(--stroke)",
-                  background: "white",
-                  opacity: 1,
-                  boxShadow:
-                    "0 24px 48px -12px #0a0d1214, 0 12px 28px -8px #0a0d1208, 0 6px 8px -4px #0a0d120a",
-                }}
-              />
-              {/* central icon */}
-              <div style={{ position: "relative", zIndex: 30 }}>
-                <svg
-                  width="100"
-                  height="100"
-                  viewBox="0 0 100 100"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect
-                    x="12"
-                    y="56"
-                    width="32"
-                    height="32"
-                    rx="6"
-                    fill="#164e4e"
-                  />
-                  <rect
-                    x="34"
-                    y="34"
-                    width="32"
-                    height="32"
-                    rx="6"
-                    fill="#1d5c5c"
-                  />
-                  <rect
-                    x="56"
-                    y="12"
-                    width="32"
-                    height="32"
-                    rx="6"
-                    fill="#2a7070"
-                  />
-                </svg>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            className="relative z-10 grid place-items-center grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-          >
-            {homeContent.features.map((feature, index) => (
-              <motion.div
-                key={feature.title}
-                className="w-full sm:w-80 h-60 rounded-2xl bg-linkrow-secondary-bg p-4 shadow-lg transition-all duration-700 hover:shadow-xl lg:p-6"
-                variants={index % 2 === 0 ? featureLeftCardVariants : featureRightCardVariants}
-              >
-                <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linkrow-primary-text">
+        <motion.div
+          className="mx-auto grid max-w-[1240px] grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.18 }}
+        >
+          {homeContent.features.map((feature) => (
+            <motion.article key={feature.title} className="relative min-h-[300px]" variants={cardVariants}>
+              <div className="absolute inset-x-2 bottom-0 h-5 rounded-b-[22px] bg-black/[0.08]" aria-hidden="true" />
+              <div className="relative flex min-h-[290px] flex-col rounded-[22px] border border-black/[0.06] bg-linkrow-secondary-bg p-6 shadow-[0_14px_32px_rgba(10,13,18,0.08)] transition-shadow duration-300 hover:shadow-[0_18px_38px_rgba(10,13,18,0.12)] sm:p-7">
+                <div className="mb-11 flex size-[54px] items-center justify-center rounded-[14px] border border-linkrow-badge-bg bg-linkrow-primary-text shadow-sm">
                   <Image src={feature.icon} alt="" width={24} height={24} />
                 </div>
-                <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">{feature.title}</h3>
-                <p className="leading-relaxed text-linkrow-badge-text">{feature.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          {/* Legacy layout retained below for visual reference during the content migration. */}
-          <div className="hidden">
-            {/* Top Left - Tailored Solutions */}
-            <motion.div
-              className="w-full sm:w-80 h-60 rounded-2xl bg-linkrow-secondary-bg p-4 shadow-lg transition-all duration-700 hover:shadow-xl lg:p-6"
-              variants={featureLeftCardVariants}
-            >
-              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linkrow-primary-text">
-                <Image
-                  src="/icons/home_feature_frame-1.svg"
-                  alt="Tailored Solutions"
-                  width={24}
-                  height={24}
-                />
+                <h3 className="text-[23px] font-medium leading-tight tracking-[-0.03em] text-linkrow-primary-text">{feature.title}</h3>
+                <p className="mt-4 text-base leading-6 text-linkrow-badge-text">{feature.description}</p>
               </div>
-              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">
-                Tailored Solutions
-              </h3>
-              <p className="leading-relaxed text-linkrow-badge-text">
-                Custom recruitment strategies designed for your unique business
-                needs.
-              </p>
-            </motion.div>
-
-            {/* Top Right - Access to Top Talent */}
-            <motion.div
-              className="w-full sm:w-80 h-60 rounded-2xl bg-linkrow-secondary-bg p-4 shadow-lg transition-all duration-700 hover:shadow-xl lg:p-6"
-              variants={featureRightCardVariants}
-            >
-              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linkrow-primary-text">
-                <Image
-                  src="/icons/home_feature_frame-2.svg"
-                  alt="Access to Top Talent"
-                  width={24}
-                  height={24}
-                />
-              </div>
-              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">
-                Access to Top Talent
-              </h3>
-              <p className="leading-relaxed text-linkrow-badge-text">
-                Connect with highly qualified candidates across industries.
-              </p>
-            </motion.div>
-
-            {/* Bottom Left - Faster Hiring */}
-            <motion.div
-              className="w-full sm:w-80 h-60 rounded-2xl bg-linkrow-secondary-bg p-4 shadow-lg transition-all duration-700 hover:shadow-xl lg:p-6"
-              variants={featureLeftCardVariants}
-            >
-              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linkrow-primary-text">
-                <Image
-                  src="/icons/home_feature_frame-3.svg"
-                  alt="Faster Hiring"
-                  width={24}
-                  height={24}
-                />
-              </div>
-              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">
-                Our Network
-              </h3>
-              <p className="leading-relaxed text-linkrow-badge-text">
-                Headquartered in Mumbai with on-ground offices across India and
-                the Middle East.
-              </p>
-            </motion.div>
-
-            {/* Bottom Right - Effortless Integration */}
-            <motion.div
-              className="w-full sm:w-80 h-60 rounded-2xl bg-linkrow-secondary-bg p-4 shadow-lg transition-all duration-700 hover:shadow-xl lg:p-6"
-              variants={featureRightCardVariants}
-            >
-              <div className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-linkrow-primary-text">
-                <Image
-                  src="/icons/home_feature_frame-4.svg"
-                  alt="Effortless Integration"
-                  width={24}
-                  height={24}
-                />
-              </div>
-              <h3 className="mb-2.5 text-xl font-semibold text-linkrow-primary-text">
-                Quality Assurance
-              </h3>
-              <p className="leading-relaxed text-linkrow-badge-text">
-                Compliance-first hiring and strict verification at every step.
-              </p>
-            </motion.div>
-          </div>
-        </div>
+            </motion.article>
+          ))}
+        </motion.div>
       </div>
     </section>
   );
