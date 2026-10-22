@@ -14,6 +14,27 @@ export const VIEWPORT = {
   amount: 0.3,
 } as const
 
+export const PROCESS_ANIMATION = {
+  easing: EASING.smooth,
+  header: {
+    badge: { duration: TIMING.fast, delay: 0 },
+    heading: { duration: TIMING.standard, delay: 0.08 },
+    paragraph: { duration: TIMING.standard, delay: 0.18 },
+  },
+  steps: {
+    stagger: 0.1,
+    badge: { duration: TIMING.fast },
+    line: { duration: TIMING.standard },
+    content: { duration: TIMING.standard },
+  },
+  cta: {
+    block: { duration: TIMING.slow },
+    image: { duration: TIMING.slow },
+    heading: { duration: TIMING.standard, delay: 0.12 },
+    button: { duration: TIMING.fast, delay: 0.22 },
+  },
+} as const
+
 export const HERO_ANIMATION = {
   easing: EASING.smooth,
   headline: { duration: 0.8, delay: 0.1 },
