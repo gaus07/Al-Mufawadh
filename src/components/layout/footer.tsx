@@ -17,7 +17,7 @@ export function FooterSection() {
             {/* Logo */}
             <div className="mb-6 flex items-center gap-3">
               <div className="flex items-center">
-                <Image src="/logo2.png" alt="Logo" width={34} height={34} />
+                <Image src="/icon.png" alt="Logo" width={34} height={34} />
               </div>
               <div>
                 <h3 className="text-lg font-bold text-linkrow-primary-text">

@@ -75,7 +75,7 @@ export function HeroSearch({ onSubmit }: HeroSearchProps) {
           >
             Location
           </FieldLabel>
-          <div className="flex h-[42px] min-w-0 items-center gap-2.5 rounded-lg border border-border bg-background px-3 shadow-sm transition-colors focus-within:ring-2 focus-within:ring-ring/30">
+          <div className="flex h-[42px] min-w-0 items-center gap-2.5 rounded-lg border border-border bg-background px-3 transition-colors focus-within:ring-2 focus-within:ring-ring/30">
             <MapPin
               aria-hidden="true"
               className="size-[18px] shrink-0 text-muted-foreground"
@@ -110,7 +110,7 @@ export function HeroSearch({ onSubmit }: HeroSearchProps) {
                 variant="outline"
                 role="combobox"
                 aria-label="Job type"
-                className="h-[42px] w-full min-w-0 justify-start gap-2.5 rounded-lg border-border bg-background px-3 text-sm font-normal text-foreground shadow-sm hover:bg-background focus:ring-2 focus:ring-ring/30"
+                className="h-[42px] w-full min-w-0 justify-start gap-2.5 rounded-lg border-border bg-background px-3 text-sm font-normal text-foreground hover:bg-background focus:ring-2 focus:ring-ring/30"
               >
                 <Users
                   aria-hidden="true"
@@ -181,7 +181,7 @@ export function HeroSearch({ onSubmit }: HeroSearchProps) {
         <Button
           type="submit"
           size="lg"
-          className="h-[42px] w-full rounded-xl bg-foreground px-5 text-sm text-background hover:bg-foreground/90 lg:w-auto"
+          className="h-[42px] w-full rounded-xl bg-linkrow-primary-text px-5 text-sm text-background hover:bg-foreground/90 lg:w-auto"
         >
           <Search aria-hidden="true" className="mr-2 size-4" />
           Search jobs
